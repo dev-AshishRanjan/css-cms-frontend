@@ -1,5 +1,5 @@
 import React from "react";
-import { List, Datagrid, TextField, ReferenceField ,EditButton ,Edit,SimpleForm,TextInput,ReferenceInput,Create,useRecordContext,UrlField,DateTimeInput,DateInput,DateField,ArrayField,ArrayInput,SimpleFormIterator } from 'react-admin';
+import { List, Datagrid, TextField, ReferenceField ,EditButton ,Edit,SimpleForm,TextInput,ReferenceInput,Create,useRecordContext,UrlField,DateTimeInput,DateInput,DateField,ArrayField,ArrayInput,SimpleFormIterator,ImageInput, ImageField } from 'react-admin';
 
 const EventTitle = () => {
     const record = useRecordContext();
@@ -18,9 +18,12 @@ export const EventList = () => (
             <TextField source="name" />
             <TextField source="description" />
             <ArrayField source="images">
-                <Datagrid>
+                {/* <Datagrid>
                     <TextField source="public_id" />
                     <TextField  source="url" />
+                </Datagrid> */}
+                <Datagrid>
+                    <ImageField source="url" title="title" />
                 </Datagrid>
             </ArrayField>
             <UrlField source="formLink" />
@@ -39,9 +42,14 @@ export const EventEdit = () => (
             <TextInput source="name" />
             <TextInput source="description" />
             <ArrayInput source="images">
-                <SimpleFormIterator>
+                {/* <SimpleFormIterator>
                     <TextInput source="public_id" />
                     <TextInput  source="url" />
+                </SimpleFormIterator> */}
+                <SimpleFormIterator>
+                    <ImageInput source="pictures" label="image">
+                        <ImageField source="src" title="title" />
+                    </ImageInput>
                 </SimpleFormIterator>
             </ArrayInput>
             <TextInput source="formLink" />
@@ -58,9 +66,14 @@ export const EventCreate = () => (
             <TextInput source="name" />
             <TextInput source="description" />
             <ArrayInput source="images">
-                <SimpleFormIterator>
+                {/* <SimpleFormIterator>
                     <TextInput source="public_id" />
                     <TextInput  source="url" />
+                </SimpleFormIterator> */}
+                <SimpleFormIterator>
+                    <ImageInput source="pictures" label="image">
+                        <ImageField source="src" title="title" />
+                    </ImageInput>
                 </SimpleFormIterator>
             </ArrayInput>
             <TextInput source="formLink" />

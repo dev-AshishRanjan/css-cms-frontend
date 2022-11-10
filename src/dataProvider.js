@@ -73,7 +73,7 @@ const dataProvider= {
         httpClient(`${apiUrl}/${resource}`, {
             method: 'POST',
             headers: {'Access-Control-Allow-Origin':"*",'Access-Control-Expose-Headers':' X-Total-Count','Content-Type': 'application/json'},
-            body:resource==='member'?JSON.stringify({...params.data,avatar:params.avatar[0],socialMedia:params.socialMedia[0]}) :JSON.stringify(params.data),
+            body:resource==='member'?JSON.stringify({...params.data,avatar:params.data.avatar[0],socialMedia:params.data.socialMedia[0]}) :JSON.stringify(params.data),
         }).then(({ json }) => ({
             data: { ...params.data, id: json.id },
         })),
